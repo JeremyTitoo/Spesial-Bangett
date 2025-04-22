@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hi Amandaa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-image: url('file:///storage/emulated/0/Download/red-heart-border-background-vector_53876-177415.webp');
+      img: url ("https://www.freepik.com/free-vector/red-heart-border-background-vector_36224418.htm#fromView=keyword&page=1&position=2&uuid=c195234e-3ee5-41de-a02e-62aefd9977ee&query=Love+Background");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+        .card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 400px;
+      margin: 5vh auto;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeIn 0.6s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      color: #ff69b4;
+      font-family: 'Quicksand', sans-serif;
+    }
+    .confess-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.2rem;
+      color: #d63384;
+      margin-bottom: 1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: 'Quicksand', sans-serif;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #ffb6c1;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Quicksand', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff69b4;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff69b4;
+    }
+    .gift-img {
+      width: 150px;
+      margin: 1rem auto;
+      display: block;
+    }
+    iframe {
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+      z-index: 1;
+      position: relative;
+    }
+    .toggle-dark {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #333;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .flower {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: url('https://png.pngtree.com/png-clipart/20200701/original/pngtree-flower-garland-cartoon-border-design-png-image_5414603.jpg') repeat-x;
+      background-size: contain;
+      z-index: 0;
+    }
+    .butterfly {
+      position: fixed;
+      width: 50px;
+      top: 10vh;
+      left: 5vw;
+      animation: fly 10s infinite ease-in-out alternate;
+      z-index: 10;
+    }
+    @keyframes fly {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(40vw, 20vh) rotate(30deg); }
+      100% { transform: translate(80vw, 5vh) rotate(-10deg); }
+   
+    }
+    @keyframes floaty {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+    .falling-heart {
+      position: fixed;
+      top: -40px;
+      font-size: 24px;
+      color: #ff69b4;
+      animation: fall 5s linear;
+      z-index: 5;
+      cursor: pointer;
+      user-select: none;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  
+  .hamburger {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 30px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .hamburger span {
+    height: 4px;
+    width: 100%;
+    background-color: #ff69b4;
+    border-radius: 2px;
+  }
+
+  .about-panel {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: white;
+    color: #333;
+    padding: 1rem;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    z-index: 1001;
+  }
+
+  .about-panel a {
+    color: #d63384;
+    text-decoration: none;
+  }
+
+  .gift-img-random {
+    width: 100px;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .profile-pic {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+</style>
+</head>
+<body>
+<img src="https://pngimg.com/d/butterfly_PNG1065.png" class="butterfly" />
+<div id="chatBubble" class="chat-bubble"></div>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator" width="90%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<audio id="clickSound" src="https://www.myinstants.com/media/sounds/minecraft_click.mp3" preload="auto"></audio>
+<audio id="errorSound" src="https://www.myinstants.com/media/sounds/windows_10_error_sound.mp3" preload="auto"></audio>
+<audio id="cameraSound" src="https://www.myinstants.com/media/sounds/camera-shutter-click.mp3" preload="auto"></audio>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
+function toggleAbout() {
+  const panel = document.getElementById("aboutPanel");
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+</script><div id="minigame" class="card">
+  <h1>Mini Game Dulu!</h1>
+  <p>Tangkap 5 hati yang jatuh untuk lanjut ke Halaman Selanjutnya!</p>
+  <p>Skor: <span id="score">0</span>/5</p>
+</div><div class="card" id="form-section" style="display:none;">
+  <h1>Sebelum Aku Bilang Sesuatu...</h1>
+  <p>ISI DULU YAA "Tenang Kok Ini Bukan Link Phising,ini cuma buatan sendiri *gk sendiri
+    juga sih,misalnya gk mau ngisi cukup isi (titik/.) "</p>
+  <input type="text" id="nama" placeholder="Nama kamu" required>
+  <input type="text" id="makanan" placeholder="Makanan favorit" required>
+  <input type="text" id="lahir" placeholder="Tanggal lahir" required>
+  <input type="text" id="kesukaan" placeholder="Kesukaan kamu" required>
+  <input type="text" id="hobi" placeholder="Hobi" required>
+  <input type="text" id="cita" placeholder="Cita-cita" required>
+  <button type="button" onclick="lanjutConfess()">Lanjut Kak</button>
+</div><div class="card" id="choice-section" style="display:none;">
+  <img src="file:///storage/emulated/0/Download/cat.gif" class="gift-img" alt="gift"/>
+  <h1 class="confess-text">Aku Suka Kamu</h1>
+  <p class="confess-text">Sebenarnya aku punya perasaan ke kamu... tapi bingung cara ngomongnya.</p>
+  <p class="confess-text">Jadi aku bikin website ini biar semua perasaanku bisa sampai. Jdi Aku Mau
+    bilang </p>
+  <h1 class="confess-text">Mau nggak jadi pacarku?</h1>
+  <p>Kalau kamu iya: makasiiih banyak udah nerima aku apa adanya.</p>
+  <p>Kalau belum bisa: nggak apa-apa, kamu tetap bikin aku bahagia.</p>
+  <button onclick="kirimJawaban('Mau Kok ')">Ya aku terima</button>
+  <button onclick="kirimJawaban('Tidak')">Aku Tidak `Cukup Jadi Teman Saja`</button>
+</div><div class="flower"></div><script>
+  let score = 0;
+  let biodata = {};
+  let heartInterval;
+  let minigameActive = true;
+
+  function spawnHeart() {
+    if (!minigameActive) return;
+    const heart = document.createElement('div');
+    heart.classList.add('falling-heart');
+    heart.textContent = '❤️';
+    heart.style.left = Math.random() * 90 + 'vw';
+    document.body.appendChild(heart);
+
+    heart.addEventListener('click', () => {
+      if (!minigameActive) return;
+      heart.remove();
+      score++;
+      document.getElementById("score").textContent = score;
+      if (score >= 5) {
+        minigameActive = false;
+        document.getElementById("minigame").style.display = "none";
+        document.getElementById("form-section").style.display = "block";
+      }
+    });
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  heartInterval = setInterval(spawnHeart, 1000);
+
+  document.querySelectorAll('#form-section input').forEach(input => {
+    input.addEventListener('input', () => {
+      document.getElementById('chatBubble').style.display = 'block';
+    });
+  });
+
+  function playSound(id) {
+    const sound = document.getElementById(id);
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  function lanjutConfess() {
+    playSound('clickSound');
+    const nama = document.getElementById('nama').value.trim();
+    const makanan = document.getElementById('makanan').value.trim();
+    const lahir = document.getElementById('lahir').value.trim();
+    const kesukaan = document.getElementById('kesukaan').value.trim();
+    const hobi = document.getElementById('hobi').value.trim();
+    const cita = document.getElementById('cita').value.trim();
+    if (!nama || !makanan || !lahir || !kesukaan || !hobi || !cita) {
+      playSound('errorSound');
+      alert("Isi dulu semua kolomnya donggg Maniess~");
+      return;
+    }
+    biodata = { nama, makanan, lahir, kesukaan, hobi, cita };
+    document.getElementById('form-section').style.display = 'none';
+    const choiceCard = document.getElementById('choice-section');
+    choiceCard.style.display = 'block';
+  }
+
+  function kirimJawaban(jawaban) {
+    playSound('clickSound');
+    if (jawaban === 'Mau Kok ') {
+      confetti();
+      playSound('cameraSound');
+      alert("Yeay! Sekarang kalian jadian sejak: " + new Date().toLocaleDateString());
+    }
+    const pesan = `Haiii%20aku%20mau%20bilang%20sesuatu%20nih%20%F0%9F%A5%B0%0A%0ANama:%20${encodeURIComponent(biodata.nama)}%0AMakanan%20favorit:%20${encodeURIComponent(biodata.makanan)}%0ATanggal%20lahir:%20${encodeURIComponent(biodata.lahir)}%0AKesukaan:%20${encodeURIComponent(biodata.kesukaan)}%0AHobi:%20${encodeURIComponent(biodata.hobi)}%0ACita-cita:%20${encodeURIComponent(biodata.cita)}%0A%0AJawaban%20kamu:%20${encodeURIComponent(jawaban)}`;
+    const linkWA = `https://wa.me/6285349815775?text=${pesan}`;
+    window.open(linkWA, '_blank');
+  }
+
+function toggleAbout() {
+  const panel = document.getElementById("aboutPanel");
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+</script>
+<!-- Hamburger Menu -->
+<div class="hamburger" onclick="toggleAbout()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- About Panel -->
+<div id="aboutPanel" class="about-panel">
+  <h2>Tentang Pembuat</h2>
+  <img src="file:///storage/emulated/0/Download/IMG_20250324_102819_783.webp" alt="Foto Profil" class="profile-pic">
+  <p><strong>Instagram:</strong> <a href="https://www.instagram.com/jeremy.titoo?igsh=MXNtbGs2NDc4Z3dvZg==" target="_blank">@Jeremy.titoo</a></p>
+  <p><strong>WhatsApp:</strong> <a href="https://wa.me/6285349815775" target="_blank">Chat di WhatsApp</a></p>
+  <p><strong>Facebook:</strong> <a href="https://www.facebook.com/share/1FpVJLzjPX/" target="_blank">Entahlah</a></p>
+  <p><strong>Profil:</strong> Seorang kreator random yang suka bikin hal lucu buat orang spesial.</p>
+  <button onclick="toggleAbout()">Tutup</button>
+  <img src="file:///storage/emulated/0/Download/cute-love-you.gif" style="top:50vh; left:60vw;" />
+</div>
+
+<!-- Gift Random di halaman confess -->
+<img src="file:///storage/emulated/0/Download/sweet-sweet-house.gif" style="top:10vh; left:5vw;" />
+<img src="https://media.tenor.com/G0QZXMnqDycAAAAC/smile-heart.gif" class="gift-img-random" style="top:35vh; left:40vw;" />
+<img src="https://media.tenor.com/kHbMea_FgDwAAAAC/cute-panda-love.gif" class="gift-img-random" style="top:10vh; left:80vw;" />
+<img src="https://media.tenor.com/BYoOxkKzJ_sAAAAC/cat-love.gif" class="gift-img-random" style="top:75vh; left:5vw;" />
+
+</body>
+</html>
